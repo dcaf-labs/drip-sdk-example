@@ -16,16 +16,22 @@
   dependencies:
     "@jridgewell/trace-mapping" "0.3.9"
 
-"@dcaf-labs/drip-sdk@^0.0.0-alpha.62":
-  version "0.0.0-alpha.62"
-  resolved "https://npm.pkg.github.com/download/@dcaf-labs/drip-sdk/0.0.0-alpha.62/e6363cbfb763f9ed116b7f9efd8c2c26cb4840f5#e6363cbfb763f9ed116b7f9efd8c2c26cb4840f5"
-  integrity sha512-F0wY9KI9ACjuF1C6ti8zipKfPGBLaM6l4JcItAa+MiWZ0Bgk95sFKTxVRvWVK2sDB4LWuCy03ZQgpoIFQN94pw==
+"@dcaf-labs/drip-sdk@^0.2.0":
+  version "0.2.0"
+  resolved "https://npm.pkg.github.com/download/@dcaf-labs/drip-sdk/0.2.0/b2f317fbb931bd62cebfa5f7f0fddd33231b8609#b2f317fbb931bd62cebfa5f7f0fddd33231b8609"
+  integrity sha512-sktZVUcoHmwchRAun1psATVcjPPpkPG/mvCkKePSLD3JLjOZPAuTTnQ+f0GOA5Gl+GWIl6/h9fkik04QUhKkQQ==
   dependencies:
+    "@dcaf-labs/drip-ts" "0.0.0-alpha.13"
     "@project-serum/anchor" "^0.25.0"
     "@solana/spl-token" "^0.2.0"
     "@solana/web3.js" "^1.37.0"
     bn.js "^5.2.0"
     decimal.js "^10.3.1"
+
+"@dcaf-labs/drip-ts@0.0.0-alpha.13":
+  version "0.0.0-alpha.13"
+  resolved "https://npm.pkg.github.com/download/@dcaf-labs/drip-ts/0.0.0-alpha.13/135f2af5d24663bba26b0d49974b5cd12e7b59a4#135f2af5d24663bba26b0d49974b5cd12e7b59a4"
+  integrity sha512-fMMS26yu8UtzCHTxF+IsUrf+xUh0ITW0JvypmVRyFwDI1rLNFdoM7Jlv+Aub3ByyzR8SDCklnvT3OG719tMS4A==
 
 "@hapi/hoek@^9.0.0":
   version "9.3.0"

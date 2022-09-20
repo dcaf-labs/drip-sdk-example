@@ -1,4 +1,11 @@
-import { Drip, DripVault, findVaultPubkey, Network, VaultAccount } from '@dcaf-labs/drip-sdk';
+import {
+    ClientEnv,
+    Drip,
+    DripVault,
+    findVaultPubkey,
+    Network,
+    VaultAccount
+} from '@dcaf-labs/drip-sdk';
 import { Address, AnchorProvider, BN } from '@project-serum/anchor';
 import NodeWallet from '@project-serum/anchor/dist/cjs/nodewallet';
 import { Connection, Keypair, PublicKey } from '@solana/web3.js';
@@ -25,23 +32,25 @@ async function main() {
     console.log('connected wallet', walletKeypair.publicKey.toString());
 
     // Setup
-    const network = Network.DevnetStaging;
+    const programId = 'dripTrkvSyQKvkyWg7oi4jmeEGMA5scSYowHArJ9Vwk';
+    const network = Network.Devnet;
+    const clientEnv = ClientEnv.Production;
     const provider = new AnchorProvider(
         new Connection('https://api.devnet.solana.com', 'confirmed'),
         new NodeWallet(walletKeypair),
         AnchorProvider.defaultOptions()
     );
-    const drip = new Drip(network, provider);
+    const drip = Drip.fromNetworkClient(network, provider, programId, clientEnv);
 
     // Devnet Drip USDT
     const tokenA = new PublicKey('H9gBUJs5Kc5zyiKRTzZcYom4Hpj9VPHLy4VzExTVPgxa');
     // Given a tokenA, get valid tokenBs
-    const tokenBs = await drip.querier.getAllTokenBs(tokenA);
+    const tokenBs = await drip.config.getAllTokenBs(tokenA);
     // For the example's sake, lets pick the first token available
     const tokenB = tokenBs[Object.keys(tokenBs)[0]].mint;
     console.log('tokeA', tokenA.toString(), 'tokenB', tokenB.toString());
 
-    const vaultProtoConfigs = await drip.querier.getSupportedVaultProtoConfigsForPair(
+    const vaultProtoConfigs = await drip.config.getSupportedVaultProtoConfigsForPair(
         tokenA,
         tokenB
     );
